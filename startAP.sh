@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #Creating Wireless AP
-sudo apt install dnsmasq hostapd
 sudo systemctl stop dnsmasq
 sudo systemctl stop hostapd
 
