@@ -7,17 +7,17 @@ if [ `id -u` != "0" ]; then
 fi
 
 #Enable SSH
-#sudo systemctl enable ssh
-#sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl start ssh
 
 #Updating apt-get to the latest
-#sudo apt-get update
-#sudo apt-get upgrade
+sudo apt-get update
+sudo apt-get upgrade
 
 #Install necessary components
-#sudo apt-get install -y fswebcam motion rpi.gpio
-#sudo apt-get install -y dnsmasq hostapd
-#sudo pip install flask
+sudo apt-get install -y fswebcam motion rpi.gpio
+sudo apt-get install -y dnsmasq hostapd
+sudo pip install flask
 
 #Check if properly installed
 function check_installed() {
@@ -37,3 +37,4 @@ sudo mv config/motion.conf /etc/motion/motion.conf
 sudo mv config/motion /etc/default/motion
 sudo service motion restart
 
+sudo ./startAP.sh
