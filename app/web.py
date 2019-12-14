@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from flask import Flask, render_template
 import RPi.GPIO as GPIO
 from time import sleep
@@ -55,7 +56,7 @@ def rotateRight():
 if __name__ == '__main__':
 	global curAngle
 	curAngle = 0
-	app.run(debug=True, port=80, host='0.0.0.0')
+	app.run(debug=False, port=80, host='0.0.0.0')
     
 #defining function to run on shutdown
 def close_running_threads():

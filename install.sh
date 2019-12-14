@@ -33,8 +33,14 @@ check_installed dnsmasq
 check_installed hostapd
 
 #Get Motion working
-sudo mv config/motion.conf /etc/motion/motion.conf
-sudo mv config/motion /etc/default/motion
+sudo cp config/motion.conf /etc/motion/motion.conf
+sudo cp config/motion /etc/default/motion
 sudo service motion restart
 
-sudo ./startAP.sh
+#Get Flask API Working
+sudo cp config/rescuecam.service /etc/systemd/system/rescuecam.service
+mkdir ~/rescueflask
+cp -r app ~/rescueflask/
+
+sudo systemctl enable rescuecam
+#sudo ./startAP.sh
