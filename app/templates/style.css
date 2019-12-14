@@ -1,0 +1,44 @@
+body{
+	background-color: #353535;
+}
+
+body > div {
+	display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 99%;
+	text-align: center;
+	/* border: 2px solid red; */
+}
+
+.livestreamContainer{
+    height: 70%;
+    top: 1%;
+}
+
+.buttonContainer{	
+    height: 20%;
+	top: 75%;
+}
+
+#stream {
+	margin: auto;
+	/* min-width: 75%;
+	max-width: 75%; */
+	width: 75%;
+	height: 100%;
+	border: 2px solid black;
+}
+
+.buttonContainer > button{
+	border: none;
+	/* max-width: 25%; */
+	width: 25%;
+	height: 100%;
+	font-size: 3vw;
+	margin: auto;
+}
+
+button:hover{
+    background-color: rgb(196, 211, 255);
+}

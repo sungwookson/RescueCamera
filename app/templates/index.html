@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Rescue Camera</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--	
+	<link rel="stylesheet" type="text/css" href="style.css">
+-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+
+	<style>
+		body{
+			background-color: #353535;
+		}
+		body > div {
+			display: flex;
+		    flex-direction: row;
+		    position: fixed;
+		    width: 99%;
+			text-align: center;
+			/* border: 2px solid red; */
+		}
+		.livestreamContainer{
+		    height: 70%;
+		    top: 1%;
+		}
+		.buttonContainer{
+		    height: 20%;
+			top: 75%;
+		}
+		#stream {
+			margin: auto;
+			/* min-width: 75%;
+			max-width: 75%; */
+			width: 75%;
+			height: 100%;
+			border: 2px solid black;
+		}
+		.buttonContainer > button{
+			border: none;
+			/* max-width: 25%; */
+			width: 25%;
+			height: 100%;
+			font-size: 3vw;
+			margin: auto;
+		}
+		button:hover{
+		    background-color: rgb(196, 211, 255);
+		}
+	</style>
+	<script>
+		function postData(url){
+			var http = new XMLHttpRequest();
+		    http.open("POST", url, true);
+		    http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		    http.send();
+		    http.onload = function() {
+		        //alert(http.responseText);
+		    }
+		}
+		function rotateCameraLeft(){
+			postData("rotate/left");
+		}
+		function rotateCameraCenter(){
+			postData("rotate/0");
+		}
+		function rotateCameraRight(){
+			postData("rotate/right");
+		}
+	</script>
+
+</head>
+<body>
+	<div class=livestreamContainer>
+		<img id="stream" src="http://localhost:8081" alt="Livestream is loading">
+	</div>
+
+	<div class=buttonContainer>
+		<button id="btn-Left" onclick="rotateCameraLeft()">Rotate Left <br/>
+			<i class="material-icons" style="font-size:5vw;">linked_camera</i>
+			<i class="material-icons" style="font-size:5vw;">rotate_left</i>
+		</button>
+		<button id="btn-Left" onclick="rotateCameraCenter()">Rotate Center <br/>
+			<i class="material-icons" style="font-size:5vw;">linked_camera</i>
+			<i class="material-icons" style="font-size:5vw;">autorenew</i>
+		</button>
+
+		<button id="btn-Right" onclick="rotateCameraRight()">Rotate Right<br/>
+			<i class="material-icons" style="font-size:5vw;">linked_camera</i>
+			<i class="material-icons" style="font-size:5vw;">rotate_right</i>
+		</button>
+	</div>
+</body>
+</html>
