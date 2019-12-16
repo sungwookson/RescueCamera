@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ `id -u` != "0" ]; then
+    echo "Run it again with root"
+    echo "sudo ./install.sh"
+    exit 1
+fi
+
+
 #Creating Wireless AP
 sudo systemctl stop dnsmasq
 sudo systemctl stop hostapd
