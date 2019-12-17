@@ -1,5 +1,6 @@
 #!/usr/bin/python
-from flask import Flask, render_template
+from urlparse import urlparse
+from flask import Flask, request, render_template
 import RPi.GPIO as GPIO
 from time import sleep
 import atexit
@@ -27,7 +28,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+	
+	streamImage = urlparse(request.url_root)
+	print streamImage
+	streamImage = streamImage.scheme + "://" + streamImage.netloc + ":8081"
+	urlFor = { 'streamImage' : streamImage }
+	return render_template('index.html',urlFor=urlFor)
 
 @app.route('/rotate/<int:new_angle>', methods=['GET', 'POST'])
 def rotateTo(new_angle):
